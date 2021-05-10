@@ -1,0 +1,16 @@
+{
+    "tasks": [
+        {
+            "label": "bridge-to-kubernetes.resource",
+            "type": "bridge-to-kubernetes.resource",
+            "resource": "stats-api",
+            "resourceType": "service",
+            "ports": [
+                3001
+            ],
+            "targetCluster": "NickDemo",
+            "targetNamespace": "todo",
+            "useKubernetesServiceEnvironmentVariables": false
+        }
+    ]
+}
