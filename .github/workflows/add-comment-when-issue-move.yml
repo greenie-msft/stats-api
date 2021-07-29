@@ -1,0 +1,18 @@
+name: Add Docs Comment When Issue Moved
+on:
+  project_card:
+    types:
+      - moved
+jobs:
+  add_docs_issue_comment:
+    if: github.event.project_card.column_id == ${{ secrets.PROJECT_COLUMN_ID }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: add_docs_issue_comment
+        uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            This feature/issue is now committed. Please make sure to open a corresponding docs issue:
+            [Open Docs Issue](https://github.com/dapr/docs/issues/new?assignees=&labels=needs-triage%2Ccontent%2Fmissing-information&template=new-content-needed.md&title=)
+            
