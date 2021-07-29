@@ -5,7 +5,7 @@ on:
       - moved
 jobs:
   add_docs_issue_comment:
-    if: github.event.project_card.column_id == ${{ secrets.PROJECT_COLUMN_ID }}
+    if: ${{ github.event.project_card.column_id == secrets.PROJECT_COLUMN_ID }}
     runs-on: ubuntu-latest
     steps:
       - name: add_docs_issue_comment
